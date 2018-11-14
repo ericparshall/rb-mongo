@@ -1,0 +1,65 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "@robinsage/rb-mongo@https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+        "scope": "@robinsage",
+        "escapedName": "@robinsage%2frb-mongo",
+        "name": "@robinsage/rb-mongo",
+        "rawSpec": "https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+        "spec": "https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+        "type": "remote"
+      },
+      "/vagrant"
+    ]
+  ],
+  "_from": "@robinsage/rb-mongo@>=0.2.5 <0.3.0",
+  "_id": "@robinsage/rb-mongo@0.2.22",
+  "_inCache": true,
+  "_location": "/@robinsage/rb-mongo",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "@robinsage/rb-mongo@https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+    "scope": "@robinsage",
+    "escapedName": "@robinsage%2frb-mongo",
+    "name": "@robinsage/rb-mongo",
+    "rawSpec": "https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+    "spec": "https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+  "_shasum": "628141a78362c8e72416338e95786277409ceecc",
+  "_shrinkwrap": null,
+  "_spec": "@robinsage/rb-mongo@https://registry.npmjs.org/@robinsage/rb-mongo/-/rb-mongo-0.2.22.tgz",
+  "_where": "/vagrant",
+  "author": {
+    "name": "Robinsage",
+    "email": "info@robinsage.com"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mongodb": "2.2.26"
+  },
+  "description": "Robinbase Mongodb extension",
+  "devDependencies": {},
+  "keywords": [
+    "Mongo",
+    "Robinbase"
+  ],
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "name": "@robinsage/rb-mongo",
+  "optionalDependencies": {},
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "readme": "# Robinbase MongoDB Services\n\nThis module adds integration with mongodb for Robinbase.\n\n## Usage\n\nThis module is installed by default in new Robinbase projects.\nIf it has been removed, you can add it back into your project by installing the npm module.\n\n```sh\nnpm install --save @robinsage/rb-mongo\n```\n\nAnd then adding it to your extensions.js file.\n\n```javascript\nmodule.exports = {\n    // .. other extensions\n    require(\"@robinsage/rb-mongo\")\n}\n```\n\n## What it provides\n\n### Property types\n\nThis module provides an objectid property type.\n\n```javascript\nconst objectidProp = Schema.guid;\n```\n\n### Storages\n\nThis module provides a mongodb storage engine.\n\n```javascript\n// In config.js\n\n// this should run after you have called \"DefaultConfig.compileEnvironment(Config);\"\nvar MongoStorage = require_robinbase('mongo:storage:MongoStorage');\nConfig.storages = {\n    'default': new MongoStorage({connectionString: Config.RB_MONGO_CONNECTION}),\n}\n\n```\n\n### Services\n\nThis module provides the Mongo service which is a utility for interacting directly with mongodb.\n\nIn general, if you want to use this service, you should retrieve the service from your storage.\n\n```javascript\nconst mongoStorage = require_robinbase(\"config\").storages.default;\nconst Mon = mongoStorage.Mon;\n\nMon.go(\"find\", \"collection\", {some: query}, function(err, result)\n{\n\n});\n```",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "version": "0.2.22"
+}
